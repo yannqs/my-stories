@@ -1,13 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Админ-панель
     const adminSection = document.querySelector('#admin');
     const newStoryForm = document.createElement('form');
 
     newStoryForm.innerHTML = `
         <label for="title">Название рассказа:</label>
-        <input type="text" id="title" name="title">
+        <input type="text" id="title" name="title" class="form-control mb-2">
         <label for="content">Содержание:</label>
-        <textarea id="content" name="content"></textarea>
-        <button type="submit">Добавить рассказ</button>
+        <textarea id="content" name="content" class="form-control mb-2"></textarea>
+        <button type="submit" class="btn btn-primary">Добавить рассказ</button>
     `;
 
     adminSection.appendChild(newStoryForm);
@@ -18,15 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const content = document.querySelector('#content').value;
         const storySection = document.querySelector('#stories');
         const newStory = document.createElement('div');
-        newStory.classList.add('story');
+        newStory.classList.add('story', 'mt-4');
         newStory.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
         storySection.appendChild(newStory);
     });
-});
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector("form");
-    form.addEventListener("submit", function(event) {
+
+    // Форма контактов
+    const contactForm = document.querySelector('#contacts form');
+    contactForm.addEventListener('submit', (event) => {
         event.preventDefault();
-        alert("Ваше сообщение отправлено!");
+        alert('Ваше сообщение отправлено!');
     });
 });
